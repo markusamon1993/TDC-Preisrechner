@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
    <link rel="icon" href="assets/logo.png" />
-  <title>The Palace Preisrechner</title>
+  <title>Diamond Casino Preisrechner</title>
   <style>
     body {
       background: #0b0b0b;
@@ -121,7 +121,7 @@
 </head>
 <body>
   <div class="header">
-    <h1>The Palace Preisrechner</h1>
+    <h1>Diamond Casino Preisrechner</h1>
   </div>
 
   <div class="container">
@@ -150,22 +150,20 @@
 
     const categories = {
       "Speisen": [
-        { name: "Tapas", price: 500, desc: "Spanische Delikatesse" },
-        { name: "Palace Fruits", price: 750, desc: "Künstliche Früchte aus essbarer Modelliermasse – exklusiv & handgemacht" }
+        { name: "Golden Kaviar Oyster", price: 25, desc: "Spanische Delikatesse" },
+        { name: "Pistazien", price: 25, desc: "Spanische Delikatesse" },
+        { name: "Goldflocken Popcorn", price: 25, desc: "Spanische Delikatesse" },
+        { name: "Club Sandwich", price: 25, desc: "Künstliche Früchte aus essbarer Modelliermasse – exklusiv & handgemacht" }
       ],
       "Getränke": [
-        { name: "De Piedra Aqua", price: 350, desc: "Kristallklares Wasser aus den tiefen uralter Gesteinsschichten" },
-        { name: "Palace Naranja", price: 400, desc: "Spanische Orangenlimonade" },
-        { name: "Pina Colada", price: 500, desc: "Weißer Rum, Kokossirup, Ananassaft, Sahne, Crushed Ice" },
-        { name: "Palace Lillet", price: 500, desc: "Mit Blattgold" },
-        { name: "Gin Tonic", price: 500, desc: "Weißer Rum, Kokossirup, Ananassaft, Sahne, Crushed Ice" },
-        { name: "Martini del Palace", price: 500, desc: "Elegant, eisgekühlt, ein Hauch purer Verführung" },
-        { name: "Palace Cava", price: 750, desc: "Exklusiver Champagner importiert aus Spanien" }
+        { name: "Champagner Don Perignon Vintage", price: 20, desc: "" },
+        { name: "Whiskey Sour", price: 20, desc: "" },
+        { name: "Golden Spark", price: 20, desc: "" },
+        { name: "KiBa", price: 20, desc: "" },
       ],
       "Extras": [
-        { name: "Cigario Electrónica", price: 1500, desc: "Elektronische Cigaros mit intensiven Aromen – sinnlich und leicht" },
-        { name: "VIP Tanz", price: 13000, desc: "Lassen Sie sich in eine Welt der Kunst entführen und genießen Sie eine extravagante Show" },
-        { name: "Palace Royal Pass", price: 50000, desc: "Bevorzugter Einlass und exklusive Specials – Luxus auf Royal-Niveau" }
+        { name: "VIP", price: 1500, desc: "Elektronische Cigaros mit intensiven Aromen – sinnlich und leicht" },
+
       ]
     };
 
@@ -239,7 +237,7 @@
       if (selectedCategories.has("Getränke")) cats.push("Getränke");
       if (selectedCategories.has("Extras")) cats.push("Extras");
 
-      const text = `The Palace | ${date} | ${cats.join(" | ")}`;
+      const text = `The Diamond Casino | ${date} | ${cats.join(" | ")}`;
       const textarea = document.createElement("textarea");
       textarea.value = text;
       document.body.appendChild(textarea);
