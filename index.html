@@ -1,299 +1,307 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="icon" href="assets/logo.png" />
-  <title>Diamond Casino Preisrechner</title>
-  <style>
-    body {
-      background: #0b0b0b;
-      color: #ddd;
-      font-family: Arial, sans-serif;
-      margin: 0;
-    }
-    .header {
-      text-align: center;
-      padding: 20px;
-      border-bottom: 2px solid gold;
-      background: #111;
-    }
-    .header h1 { color: gold; margin: 0; font-size: 26px; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="icon" href="assets/logo.png" />
+<title>Diamond Casino Preisrechner</title>
+<style>
+body {
+  background: #0b0b0b;
+  color: #ddd;
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+.header {
+  text-align: center;
+  padding: 20px;
+  border-bottom: 2px solid gold;
+  background: #111;
+}
+.header h1 { color: gold; margin: 0; font-size: 26px; }
 
-    .container {
-      display: flex;
-      justify-content: space-between;
-      padding: 20px;
-      gap: 20px;
-    }
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  gap: 20px;
+}
 
-    .products, .cart {
-      border: 2px solid gold;
-      border-radius: 8px;
-      padding: 16px;
-      background: #141414;
-      box-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
-    }
-    .products { flex: 2; }
-    .cart { flex: 1; }
+.products, .cart {
+  border: 2px solid gold;
+  border-radius: 8px;
+  padding: 16px;
+  background: #141414;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
+}
+.products { flex: 2; }
+.cart { flex: 1; }
 
-    .category-buttons { margin-bottom: 12px; }
-    .category-buttons button {
-      margin: 4px;
-      padding: 8px 12px;
-      background: #222;
-      border: 1px solid gold;
-      border-radius: 5px;
-      color: gold;
-      cursor: pointer;
-    }
-    .category-buttons button:hover {
-      background: gold;
-      color: #111;
-    }
+.category-buttons { margin-bottom: 12px; }
+.category-buttons button {
+  margin: 4px;
+  padding: 8px 12px;
+  background: #222;
+  border: 1px solid gold;
+  border-radius: 5px;
+  color: gold;
+  cursor: pointer;
+}
+.category-buttons button:hover {
+  background: gold;
+  color: #111;
+}
 
-    #product-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 12px;
-    }
+#product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
 
-    .product {
-      border: 1px solid #444;
-      border-radius: 6px;
-      background: #1c1c1c;
-      padding: 10px;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    .product:hover { background: #2a2a2a; }
-    .product h3 { margin: 0 0 4px; font-size: 16px; color: #fff; }
-    .product p { margin: 0; font-size: 13px; color: #bbb; }
-    .price { color: gold; font-weight: bold; }
+.product {
+  border: 1px solid #444;
+  border-radius: 6px;
+  background: #1c1c1c;
+  padding: 10px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.product:hover { background: #2a2a2a; }
+.product h3 { margin: 0 0 4px; font-size: 16px; color: #fff; }
+.product p { margin: 0; font-size: 13px; color: #bbb; }
+.price { color: gold; font-weight: bold; }
 
-    .cart h2 { color: gold; margin-top: 0; }
-    #cart-items { list-style: none; padding: 0; }
-    #cart-items li { margin: 6px 0; font-size: 14px; }
-    .qty-btn {
-      background: #222;
-      border: 1px solid gold;
-      color: gold;
-      margin: 0 4px;
-      padding: 2px 6px;
-      cursor: pointer;
-    }
-    .qty-btn:hover { background: gold; color: #111; }
-    .total { font-weight: bold; color: gold; margin-top: 10px; }
+.cart h2 { color: gold; margin-top: 0; }
+#cart-items { list-style: none; padding: 0; }
+#cart-items li { margin: 6px 0; font-size: 14px; }
+.qty-btn {
+  background: #222;
+  border: 1px solid gold;
+  color: gold;
+  margin: 0 4px;
+  padding: 2px 6px;
+  cursor: pointer;
+}
+.qty-btn:hover { background: gold; color: #111; }
+.total { font-weight: bold; color: gold; margin-top: 10px; }
 
-    .cart button.clear-btn {
-      display: block;
-      margin-top: 10px;
-      width: 100%;
-      padding: 8px 12px;
-      background: #222;
-      border: 1px solid gold;
-      border-radius: 5px;
-      color: gold;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .cart button.clear-btn:hover {
-      background: gold;
-      color: #111;
-    }
+.cart button.clear-btn {
+  display: block;
+  margin-top: 10px;
+  width: 100%;
+  padding: 8px 12px;
+  background: #222;
+  border: 1px solid gold;
+  border-radius: 5px;
+  color: gold;
+  font-weight: bold;
+  cursor: pointer;
+}
+.cart button.clear-btn:hover {
+  background: gold;
+  color: #111;
+}
 
-    .copy-section { margin-top: 20px; }
-    .copy-section button {
-      background: gold;
-      border: none;
-      padding: 8px 12px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    .copy-output {
-      margin-top: 10px;
-      font-size: 14px;
-      color: #fff;
-      font-style: italic;
-    }
+.copy-section { margin-top: 20px; }
+.copy-section button {
+  background: gold;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.copy-output {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #fff;
+  font-style: italic;
+}
 
-    .person-section {
-      margin-top: 10px;
-      margin-bottom: 10px;
-    }
-    .person-section input {
-      width: 60px;
-      text-align: center;
-      padding: 4px;
-      border: 1px solid gold;
-      background: #222;
-      color: gold;
-      border-radius: 5px;
-    }
-  </style>
+.person-section {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.person-section input {
+  width: 60px;
+  text-align: center;
+  padding: 4px;
+  border: 1px solid gold;
+  background: #222;
+  color: gold;
+  border-radius: 5px;
+}
+</style>
 </head>
 <body>
-  <div class="header">
-    <h1>Diamond Casino Preisrechner</h1>
+<div class="header">
+  <h1>Diamond Casino Preisrechner</h1>
+</div>
+
+<div class="container">
+  <div class="products">
+    <h2>Kategorien</h2>
+    <div class="category-buttons" id="category-buttons"></div>
+    <div id="product-list"></div>
   </div>
 
-  <div class="container">
-    <div class="products">
-      <h2>Kategorien</h2>
-      <div class="category-buttons" id="category-buttons"></div>
-      <div id="product-list"></div>
+  <div class="cart">
+    <h2>Warenkorb</h2>
+    <ul id="cart-items"></ul>
+    <p class="total">Gesamtsumme: <span id="total">0</span>$</p>
+
+    <div class="person-section">
+      <label for="personCount">Personenanzahl:</label>
+      <input type="number" id="personCount" min="1" value="1">
     </div>
 
-    <div class="cart">
-      <h2>Warenkorb</h2>
-      <ul id="cart-items"></ul>
-      <p class="total">Gesamtsumme: <span id="total">0</span>$</p>
+    <button class="clear-btn" onclick="clearCart()">Warenkorb leeren</button>
 
-      <div class="person-section">
-        <label for="personCount">Personenanzahl:</label>
-        <input type="number" id="personCount" min="1" value="1">
-      </div>
-
-      <button class="clear-btn" onclick="clearCart()">Warenkorb leeren</button>
-
-      <div class="copy-section">
-        <button id="copyBtn">Rechnungstext kopieren</button>
-        <div id="copyOutput" class="copy-output"></div>
-      </div>
+    <div class="copy-section">
+      <button id="copyBtn">Rechnungstext kopieren</button>
+      <div id="copyOutput" class="copy-output"></div>
     </div>
   </div>
+</div>
 
-  <script>
-    let cart = [];
-    let currentCategory = "";
+<script>
+let cart = [];
+let currentCategory = "";
 
-    const categories = {
-      "Speisen": [
-        { name: "Kaviar Crostini", price: 150, desc: "Knuspriges Baguette mit Creme Fraiche und erlesenem Kaviar" },
-        { name: "Pistazien", price: 50, desc: "Geröstet und mit Goldstaub verziert" },
-        { name: "Hummer", price: 200, desc: "Edler Hummer vom Grill mit Butter und Rosmarin" },
-        { name: "Club Sandwich", price: 250, desc: "Sandwich mit erlesenen Zutaten und hausgemachter Sauce" }
-      ],
-      "5x5": [
-        { name: "5x5 mit Alkohol", price: 2500, desc: "5x Club Sandwich + 5x Champagner" },
-        { name: "5x5 ohne Alkohol", price: 2250, desc: "5x Club Sandwich + 5x Cola" },
-      ],
-      "Getränke": [
-        { name: "Champagner", price: 250, desc: "Bester Champagner aus der Champagne" },
-        { name: "Whisky", price: 150, desc: "Whisky 18 Jahre aus dem Eichenfass" },
-        { name: "Cola", price: 200, desc: "C*ca Cola" },
-        { name: "KiBa", price: 150, desc: "Kirsch Banane Fruchtsaft" },
-      ],
-      "Extras": [
-        { name: "VIP", price: 15000, desc: "1 Monat" },
-      ],
-      "Eintritt": [
-        { name: "Einlass", price: 500, desc: "Das Recht das Etablissement zu betreten" },
-      ]
-    };
+const categories = {
+  "Speisen": [
+    { name: "Kaviar Crostini", price: 150, desc: "Knuspriges Baguette mit Creme Fraiche und erlesenem Kaviar" },
+    { name: "Pistazien", price: 50, desc: "Geröstet und mit Goldstaub verziert" },
+    { name: "Hummer", price: 200, desc: "Edler Hummer vom Grill mit Butter und Rosmarin" },
+    { name: "Club Sandwich", price: 250, desc: "Sandwich mit erlesenen Zutaten und hausgemachter Sauce" }
+  ],
+  "5x5": [
+    { name: "5x5 mit Alkohol", price: 2500, desc: "5x Club Sandwich + 5x Champagner" },
+    { name: "5x5 ohne Alkohol", price: 2250, desc: "5x Club Sandwich + 5x Cola" }
+  ],
+  "Getränke": [
+    { name: "Champagner", price: 250, desc: "Bester Champagner aus der Champagne" },
+    { name: "Whisky", price: 150, desc: "Whisky 18 Jahre aus dem Eichenfass" },
+    { name: "Cola", price: 200, desc: "C*ca Cola" },
+    { name: "KiBa", price: 150, desc: "Kirsch Banane Fruchtsaft" }
+  ],
+  "Extras": [
+    { name: "VIP", price: 30000, desc: "1 Monat" }
+  ],
+  "Eintritt": [
+    { name: "Einlass", price: 1000, desc: "Das Recht das Etablissement zu betreten" }
+  ]
+};
 
-    function renderCategories() {
-      const btns = document.getElementById('category-buttons');
-      btns.innerHTML = '';
-      Object.keys(categories).forEach(cat => {
-        btns.innerHTML += `<button onclick="setCategory('${cat}')">${cat}</button>`;
-      });
+function renderCategories() {
+  const btns = document.getElementById('category-buttons');
+  btns.innerHTML = '';
+  Object.keys(categories).forEach(cat => {
+    btns.innerHTML += `<button onclick="setCategory('${cat}')">${cat}</button>`;
+  });
+}
+
+function setCategory(cat) {
+  currentCategory = cat;
+  renderProducts();
+}
+
+function renderProducts() {
+  const list = document.getElementById('product-list');
+  list.innerHTML = '';
+  categories[currentCategory].forEach((p, i) => {
+    list.innerHTML += `
+      <div class="product" onclick="addProductToCart('${currentCategory}', ${i})">
+        <h3>${p.name} <span class="price">$${p.price}</span></h3>
+        <p>${p.desc}</p>
+      </div>`;
+  });
+}
+
+function addProductToCart(cat, i) {
+  const product = categories[cat][i];
+  const existing = cart.find(item => item.name === product.name);
+  if (existing) {
+    existing.count++;
+  } else {
+    cart.push({ ...product, category: cat, count: 1 });
+  }
+  renderCart();
+}
+
+function renderCart() {
+  const items = document.getElementById('cart-items');
+  items.innerHTML = '';
+  let total = 0;
+  cart.forEach((item, index) => {
+    const subtotal = item.price * item.count;
+    items.innerHTML += `<li>${item.name} - ${item.count} x $${item.price} = <span class="price">$${subtotal}</span>
+      <button class="qty-btn" onclick="changeQty(${index}, -1)">-</button>
+      <button class="qty-btn" onclick="changeQty(${index}, 1)">+</button>
+    </li>`;
+    total += subtotal;
+  });
+  document.getElementById('total').innerText = total;
+}
+
+function changeQty(index, delta) {
+  cart[index].count += delta;
+  if (cart[index].count <= 0) cart.splice(index,1);
+  renderCart();
+}
+
+function clearCart() {
+  cart = [];
+  renderCart();
+}
+
+// --- Angepasster Rechnungstext ---
+async function copyReceipt() {
+  const date = new Date().toLocaleDateString('de-DE');
+  const persons = document.getElementById('personCount').value || 1;
+
+  let categoryMap = {};
+
+  cart.forEach(item => {
+    if(!categoryMap[item.category]) categoryMap[item.category] = [];
+
+    if(item.category === "5x5") {
+      let text = item.name.includes("mit Alkohol")
+        ? `${item.count}x 5x5/(5x Club Sandwich + 5x Champagner)`
+        : `${item.count}x 5x5/(5x Club Sandwich + 5x Cola)`;
+      categoryMap[item.category].push(text);
+    } else {
+      categoryMap[item.category].push(`${item.count}x ${item.name}`);
     }
+  });
 
-    function setCategory(cat) {
-      currentCategory = cat;
-      renderProducts();
+  let parts = [];
+  Object.keys(categoryMap).forEach(cat => {
+    if(cat === "5x5") {
+      parts.push(categoryMap[cat].join(" | "));
+    } else {
+      parts.push(`${cat}/${categoryMap[cat].join(" / ")}`);
     }
+  });
 
-    function renderProducts() {
-      const list = document.getElementById('product-list');
-      list.innerHTML = '';
-      categories[currentCategory].forEach((p, i) => {
-        list.innerHTML += `
-          <div class="product" onclick="addProductToCart('${currentCategory}', ${i})">
-            <h3>${p.name} <span class="price">$${p.price}</span></h3>
-            <p>${p.desc || ''}</p>
-          </div>`;
-      });
-    }
+  const text = `TDC - ${date} | ${persons} P | ${parts.join(" | ")}`;
+  const output = document.getElementById("copyOutput");
 
-    function addProductToCart(cat, i) {
-      const product = categories[cat][i];
-      const existing = cart.find(item => item.name === product.name);
-      if (existing) {
-        existing.count++;
-      } else {
-        cart.push({ ...product, category: cat, count: 1 });
-      }
-      renderCart();
-    }
+  try {
+    await navigator.clipboard.writeText(text);
+    output.innerText = `✔️ ${text}`;
+  } catch {
+    output.innerText = text;
+  }
+  setTimeout(()=>{ output.innerText = ""; }, 10000);
+}
 
-    function renderCart() {
-      const items = document.getElementById('cart-items');
-      items.innerHTML = '';
-      let total = 0;
-      cart.forEach((item, index) => {
-        const subtotal = item.price * item.count;
-        items.innerHTML += `<li>${item.name} - ${item.count} x $${item.price} = <span class="price">$${subtotal}</span>
-          <button class="qty-btn" onclick="changeQty(${index}, -1)">-</button>
-          <button class="qty-btn" onclick="changeQty(${index}, 1)">+</button>
-        </li>`;
-        total += subtotal;
-      });
-      document.getElementById('total').innerText = total;
-    }
+document.getElementById("copyBtn").addEventListener("click", copyReceipt);
 
-    function changeQty(index, delta) {
-      cart[index].count += delta;
-      if (cart[index].count <= 0) cart.splice(index, 1);
-      renderCart();
-    }
-
-    function clearCart() {
-      cart = [];
-      renderCart();
-    }
-
-    async function copyReceipt() {
-      const date = new Date().toLocaleDateString('de-DE');
-      const persons = document.getElementById('personCount').value || 1;
-
-      let parts = [];
-
-      cart.forEach(item => {
-        let entry = "";
-        if (item.category === "5x5") {
-          if (item.name.includes("mit Alkohol")) {
-            entry = `5x5/(5x Club Sandwich + 5x Champagner)`;
-          } else {
-            entry = `5x5/(5x Club Sandwich + 5x Cola)`;
-          }
-        } else if (item.category === "Speisen" || item.category === "Getränke" || item.category === "Extras" || item.category === "Eintritt") {
-          entry = `${item.category}/${item.count}x ${item.name}`;
-        }
-        if (entry) parts.push(entry);
-      });
-
-      const text = `TDC - ${date} | ${persons} P | ${parts.join(" | ")}`;
-      const output = document.getElementById("copyOutput");
-
-      try {
-        await navigator.clipboard.writeText(text);
-        output.innerText = `✔️ ${text}`;
-      } catch {
-        output.innerText = text; // Fallback, falls Clipboard blockiert
-      }
-
-      setTimeout(() => { output.innerText = ""; }, 10000);
-    }
-
-    document.getElementById("copyBtn").addEventListener("click", copyReceipt);
-
-    window.addEventListener('DOMContentLoaded', () => {
-      renderCategories();
-      setCategory(Object.keys(categories)[0]);
-    });
-  </script>
+window.addEventListener('DOMContentLoaded', ()=>{
+  renderCategories();
+  setCategory(Object.keys(categories)[0]);
+});
+</script>
 </body>
 </html>
